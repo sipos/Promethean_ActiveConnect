@@ -204,10 +204,10 @@ After selecting Start Linux Mint from the GRUB menu, ignoring some errors and ou
 * Clicked Let's go! on the Welcome window
 * Clicked Launch for the Update Manager, and clicked OK in the Update Manager, then Apply the Update to update it, and entered my password
 * I clicked Install Updates to install all available updates and entered my password again
-* Although it isn't required,I rebooted, since there was a kernel update, obviously logging in again after the reboot
+* Although it isn't required, I rebooted, since there was a kernel update, obviously logging in again after the reboot
 * Launched the firewall configuration tool, entered my password, and enabled it
 * Clicked on the Removable drives icon in the notification area in the bottom right of the screen, and clicked the eject icon for one of the Linux Mint USB key, before removing it
-* Opened the terminal and ran `sudo apt install -y build-essential python3 python3-virtualenv git openssh-server`
+* Opened the terminal and ran `sudo apt install -y build-essential python3 python3-virtualenv git openssh-server` (to install a C/C++ compiler, make, python3 virtualenv, git and sshd)
 * Opened the firewall configuration utility from the LM Menu, Preferences, Firewall Configuration, and entered my password
 * Clicked the Rules tab, clicked the plus button, set Policy: Allow, Direction: In, Category: Network, Subcategory: Services, Application: SSH, and clicked Add. This isn't particularly secure, and you should probably limit it to the local network, if you are going to use untrusted networks, and configure sshd to accept only SSH keys, if the security of the system matters.
 * Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
@@ -251,6 +251,7 @@ After selecting Try or Install Ubuntu from the GRUB menu, and waiting a while fo
 * I could now disconnect the Ethernet and the WiFi worked
 * Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
 * Backing up files somewhere off-site obviously makes sense too
+* Some sort of firewall may be advisable if you are using untrusted networks. I don't think it enables anything by default.
 
 ### Suggested software
 
