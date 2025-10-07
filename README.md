@@ -167,11 +167,15 @@ I think Steam is best documented on Ubuntu, but I assume it isn't hard to get wo
 
 Linux Mint using more native packages, rather than FlatPak or Snap packages, means that it is faster than Ubuntu on slow disks.
 
+For all of the following, you should really check the SSH host key when first connecting, unless you completely trust the network you are using, but I am omitting instructions on how to do that. TODO: add this
+
 #### Linux Mint Cinnamon Edition 22.2
 
 This is the best I have used so far for beginners. As with everything else I have tried, I used Legacy Only boot mode, and the WiFi drivers do not work without some action, but I found that enabling them with the Driver Manager GUI tool in the install environment worked without having to connect Ethernet, and the WiFi credentials were copied over to the installed system automatically, so I could use them after doing the same in the installed system, without needing Ethernet at any point.
 
 Linux Mint is based on Ubuntu, so much of what is written online about Ubuntu applies to Linux Mint. It does not use the GNOME 3 desktop environment, which is unlike Windows and not great on slow hardware. Cinnamon Edition uses the Cinnamon desktop environment, but Xfce (what I use on Gentoo, flexible, good for slow machines, but less simple and familiar to Windows users than Cinnamon probably) and MATE (continuation of GNOME 2, which I used to use) editions are available.
+
+I used the following image for this (sha256sum): `759c9b5a2ad26eb9844b24f7da1696c705ff5fe07924a749f385f435176c2306  linuxmint-22.2-cinnamon-64bit.iso`
 
 After selecting Start Linux Mint from the GRUB menu, ignoring some errors and output from systemd, and waiting a while for the live environment to boot, I installed it as follows (this will erase anything on the machine already):
 
@@ -222,6 +226,8 @@ Installing it in Legacy Only boot mode worked fine, either with Ethernet (in whi
 
 Either way, the WiFi card does not work during installation, but when installing it with Ethernet connected and selecting Install third-party software for graphics and WiFi, it worked automatically after rebooting in the installed environment. If you didn't enable this, you should be able to enable the Broadcom STA DKMS proprietary driver with the Additional Drivers GUI tool/the Additional Drivers tab in Software and Updates. Alternatively, run `sudo apt install -y broadcom-sta-dkms` in the terminal, and either reboot, or remove the modules it clashes with `rmmod` and then load it with `sudo modprobe wl` (A reboot isn't necessary, but is quicker to describe fully).
 
+I used the following image for this (sha256sum): `faabcf33ae53976d2b8207a001ff32f4e5daae013505ac7188c9ea63988f8328  ubuntu-24.04.3-desktop-amd64.iso`
+
 After selecting Try or Install Ubuntu from the GRUB menu, and waiting a while for the live environment to boot, ignoring the error message about the b43 driver and the Bluetooth firmware failing to load, I installed Ubuntu as follows (this will erase anything on the machine already):
 
 * Clicked Next with English selected for the language
@@ -253,6 +259,55 @@ After selecting Try or Install Ubuntu from the GRUB menu, and waiting a while fo
 * Backing up files somewhere off-site obviously makes sense too
 * Some sort of firewall may be advisable if you are using untrusted networks. I don't think it enables anything by default.
 
+#### Pop!_OS
+
+I don't necessarily recommend Pop!_OS. It uses GNOME 3, like Ubuntu (though both modified versions), and is less polished and slightly less compatible/well documented than Ubuntu, with no advantages I am aware of. I also found it less stable than Ubuntu or Linux Mint Cinnamon. I would recommend Linux Mint Cinnamon, and then Ubuntu, over Pop!_OS, unless using a System 76 system.
+
+I used the following image for this (sha256sum): `4e1c5e391062c79dc611ce383c2a709fecac36798ebd81444a734fd41252608e  pop-os_22.04_amd64_intel_58.iso`
+
+I booted Pop!_OS 22.04 LTS, which took a while, and then installed it as follows (with Ethernet connected - I didn't test without it):
+
+* Clicked Wait on the dialogue saying Install Pop!_OS is not responding
+* Clicked Select with English selected
+* Selected United Kingdom, and clicked Select
+* Clicked Select with English (UK) selected for the keyboard layout
+* Clicked Select with Default selected for the keyboard layout variant
+* Selected Clean Install, and clicked Clean Install
+* Selected the ATA FORESEE 64GB SSD, and clicked Erase and Install
+* Entered `Nick Cripps` as my full name, and `sipos` as my user name (as before, obviously change these), and clicked Next
+* Entered and confirmed a password, and clicked Next
+* Left Encryption password is the same as user account password checked and clicked Encrypt (I don't necessarily recommend encrypting the disk if you aren't storing anything sensitive or taking the device anywhere)
+* Waited for the system to be installed
+* Clicked Restart Device
+* Entered the disk encryption/user password, and pressed Enter (which produces the message `cryptsetup: cryptdata: set up successfully`)
+* Clicked my name, entered my password, and pressed Enter
+* Clicked Next with Dock extends to the edges selected
+* Clicked Next with the default workspaces and applications buttons enabled (though I'd disable the workspaces button if you don't use multiple workspaces) and the date & time and notifications position being centre
+* Clicked Next on the super key (Windows key on keyboards with that) screen
+* Clicked Next on the gestures screen (without hardware to perform them, like a multi-touch touchscreen or track pad, this is irrelevant)
+* Clicked Next with the dark theme selected
+* Clicked Next without enabling location services
+* Typed London into the search box, selected the "London, East and South East England, United Kingdom" option, clicked Next
+* Clicked Skip on connecting online accounts
+* Clicked Start Using Pop!_OS
+* Clicked the Pop!_Shop on the menu bar, clicked the hamburger menu, clicked on Updates & Installed Software, clicked Update All, and waited for Installing updates and Checking for updates to finish, before closing the Pop!_Shop
+* Opened Settings, clicked on Sharing, and changed the computer name to `pyros` (choose your own if following this)
+* Clicked on Power in the Settings window and changed the Power Mode to Performance (the device only uses AC power, so best to have best performance)
+* Clicked on Removable Media in the Settings window, and changed the action for Software from Run Software to Ask what to do (you need to hold down the mouse button to keep the menu open)
+* Closed the Settings window and opened a Terminal window, and ran `sudo apt install -y build-essential python3 python3-virtualenv git openssh-server broadcom-sta-dkms`
+* Clicked on one of the removable disk partitions, to open a file manager window, and clicked the eject button next to it, before removing the install USB and closing the file manager window
+* Closed the terminal window when the command had run, and the prompt was shown again
+* Rebooted, by clicking on the menu in the top right, clicking Power Off / Log Out, and then Restart... and Restart (restart isn't necessary, but it is easier to describe than how to load the WiFi drivers without rebooting)
+* Removed the Ethernet cable during reboot
+* Unlocked the disk, and logged in again, as before
+* I then clicked on the status icons in the top right, then on Wi-Fi Not Connected (the WiFi drivers are loaded after a reboot), clicked Select Network, selected my WiFi network SSID and clicked Connect, entered the key, and pressed Enter
+* The WiFi now worked
+* If you install VLC from the Pop!_Shop, check the package size, as there was one about 45Mb and one over a GB. One will be a deb package and the other a Snap or FlatPak I expect. You may also wish to make it the default player for Music and Video in the Settings app > Default Applications
+* Similarly, if installing GIMP or Inkscape, change from the FlatPak to the deb package from the Ubuntu repo for a much smaller install
+* Signing-in to Firefox to share bookmarks, passwords, settings, etc, and making it the default browser, probably makes sense
+* Backing up files somewhere off-site obviously makes sense too
+* Some sort of firewall may be advisable if you are using untrusted networks. I don't think it enables anything by default.
+
 ### Suggested software
 
 For any Linux beginners, I usually install the following GUI apps:
@@ -273,7 +328,7 @@ There are numerous free games for Linux, as well as many with Linux support. For
 
 ## Plans
 
-I plan to try other beginner friendly distros, or ones I am curious about (elementary OS, Pop! OS, MX Linux and Nitrux, perhaps NixOS (which is not particularly beginner friendly)), and Windows 10 or 11, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
+I plan to try other beginner friendly distros, or ones I am curious about (elementary OS, MX Linux and Nitrux, perhaps NixOS (which is not particularly beginner friendly)), and Windows 10 or 11, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
 
 I plan to install Gentoo, either primarily using packages from the Gentoo binhost, or building them in the cloud on my own virtual binhost, and use the device as a media centre machine. XBMC or similar might be a good fit for this, but I plan to use Gentoo and develop my own media centre environment, because that seems more fun.
 
