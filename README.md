@@ -169,6 +169,10 @@ Linux Mint using more native packages, rather than FlatPak or Snap packages, mea
 
 For all of the following, you should really check the SSH host key when first connecting, unless you completely trust the network you are using, but I am omitting instructions on how to do that. TODO: add this
 
+#### Writing USB live/install images on Linux
+
+For almost everything, if you have an image file named, for example, `example.iso`, and the USB key device is `/dev/sdz` (check devices with `sudo fdisk -l /dev/sda` etc, changing the letter until the size of the disk, the device label and the partitions match the USB key you want to write to - **DO NOT make a mistake with the device, as it will destroy the filesystem on the device**) use `sudo dd if=example.iso of=/dev/sdz bs=8M && sudo sync` (the `bs=8M` tells it to use 8Mb blocks, rather than 512b ones, which will be faster for flash, and the sync command will not return until all data has been flushed to disk so it is safe to remove). **Make sure to use the whole device, not a partition, so, e.g. `/dev/sdz` not `/dev/sdz1`.**
+
 #### Linux Mint Cinnamon Edition 22.2
 
 This is the best I have used so far for beginners. As with everything else I have tried, I used Legacy Only boot mode, and the WiFi drivers do not work without some action, but I found that enabling them with the Driver Manager GUI tool in the install environment worked without having to connect Ethernet, and the WiFi credentials were copied over to the installed system automatically, so I could use them after doing the same in the installed system, without needing Ethernet at any point.
