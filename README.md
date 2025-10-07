@@ -59,7 +59,7 @@ On the back, there are the following:
 
 * power barrel jack (19V, 2.1A, centre positive TODO: size)
 * full-sized DisplayPort (TODO: verify functioning and version)) and HDMI (TODO: version) output
-* four USB 3.0 type A ports (see note in intro about upper right one being optimised for touch screens) (TODO: test all but upper-left)
+* four USB 3.0 type A ports (see note in intro about upper right one being optimised for touch screens)
 * gigabit Ethernet (TODO: check speed)
 * eSATA port (TODO: verify functioning and speed)
 * WiFi antenna connector
