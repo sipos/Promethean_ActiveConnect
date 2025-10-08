@@ -279,7 +279,7 @@ See [other_distros.md](other_distros.md).
 
 I don't necessarily recommend Pop!_OS. It uses GNOME 3, like Ubuntu (though both modified versions), and is less polished and slightly less compatible/well documented than Ubuntu, with no advantages I am aware of. I also found it less stable than Ubuntu or Linux Mint Cinnamon. I would recommend Linux Mint Cinnamon, and then Ubuntu, over Pop!_OS, unless using a System 76 system.
 
-See [other_distros.md](other_distros.md#pop-os).
+See [other_distros.md](other_distros.md#pop_os).
 
 #### Elementary OS
 
