@@ -279,13 +279,13 @@ See [other_distros.md](other_distros.md).
 
 I don't necessarily recommend Pop!_OS. It uses GNOME 3, like Ubuntu (though both modified versions), and is less polished and slightly less compatible/well documented than Ubuntu, with no advantages I am aware of. I also found it less stable than Ubuntu or Linux Mint Cinnamon. I would recommend Linux Mint Cinnamon, and then Ubuntu, over Pop!_OS, unless using a System 76 system.
 
-See [other_distros.md](other_distros.md).
+See [other_distros.md](other_distros.md#pop-os).
 
 #### Elementary OS
 
 I don't recommend this. The website was down when I first tried to download it, and it isn't as easy to use, polished, well documented, or performant as other options. It looks quite nice, so may be nice if it works better in future. It uses a desktop environment called Pantheon, heavily based on GNOME 3. It feels like a mix of mac OS, Windows and GNOME 3. It bills itself as the "ethical" (among other things) alternative to Windows and mac OS. It asks you to pay what you can to download it. As I am only trying it, I selected $0. I don't see how it is ethical to be asking for money for what is largely free/libre open-source software. To be fair to it, regarding issues below, the CPU is below what it says is the minimum system requirements (modern Core i3).
 
-See [other_distros.md](other_distros.md).
+See [other_distros.md](other_distros.md#elementary-os).
 
 ### Suggested software
 

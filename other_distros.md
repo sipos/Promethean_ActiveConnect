@@ -2,11 +2,11 @@
 
 ## Linux Mint Cinnamon Edition 22.2
 
-See [README.md](README.md#linux-mint-cinnamon-edition-22.2).
+See [README.md](README.md#linux-mint-cinnamon-edition-222).
 
 ## Ubuntu 24.04.3 LTS (Noble Numbat)
 
-See [README.md](README.md#ubuntu-24.04.3-lts-noble-numbat).
+See [README.md](README.md#ubuntu-24043-lts-noble-numbat).
 
 ## Pop!_OS
 
@@ -57,7 +57,7 @@ I booted Pop!_OS 22.04 LTS, which took a while, and then installed it as follows
 * Backing up files somewhere off-site obviously makes sense too
 * Some sort of firewall may be advisable if you are using untrusted networks. I don't think it enables anything by default.
 
-#### Elementary OS
+## Elementary OS
 
 I don't recommend this. The website was down when I first tried to download it, and it isn't as easy to use, polished, well documented, or performant as other options. It looks quite nice, so may be nice if it works better in future. It uses a desktop environment called Pantheon, heavily based on GNOME 3. It feels like a mix of mac OS, Windows and GNOME 3. It bills itself as the "ethical" (among other things) alternative to Windows and mac OS. It asks you to pay what you can to download it. As I am only trying it, I selected $0. I don't see how it is ethical to be asking for money for what is largely free/libre open-source software. To be fair to it, regarding issues below, the CPU is below what it says is the minimum system requirements (modern Core i3).
 
