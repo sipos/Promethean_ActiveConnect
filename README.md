@@ -1,6 +1,12 @@
 # Promethean ActiveConnect
 
-These notes are my own regarding a Promethean ActiveConnect device I was given. According to the label on the base, it is model `PRM-ACON1-01`. My device's serial number is in [this file](serial_number.txt) (intentionally not shared publicly, but it begins with a G).
+## Introduction
+
+These notes are my own regarding a Promethean ActiveConnect device I was given. They are also about the distributions I tried on it, mostly focused on ones potentially suitable for new Linux users. The detail on my experience of distributions is a bit off-topic to the original purpose.
+
+## Device
+
+According to the label on the base, it is model `PRM-ACON1-01`. My device's serial number is in [this file](serial_number.txt) (intentionally not shared publicly, but it begins with a G).
 
 It came with some sort of Windows 10 based system on it, and appears to be the Windows 10 version of the ActiveConnect M-series or ClassFlow Connect device with information [here](https://support.prometheanworld.com/s/topic/0TOPQ0000001ptJ4AQ/activconnect-mseries-classflow-connect?language=en_US). One thing noted from the website is that apparently the upper-right (top, next to eSATA port) USB 3.0 port is "optimised for touch devices" (see [here](https://support.prometheanworld.com/s/article/1510?language=en_US)).
 
@@ -68,7 +74,7 @@ There are no ports on the sides, top or bottom, all of which are vented. There a
 
 ## Internals
 
-Opening the base reveals a 4GB DDR3 PC3-12800 SO-DIMM (TODO full specs), the WiFi/BT card (TODO spec and connector), a push-button switch marked SW2, and a 2.5" SSD, which despite being labelled SATA6.0Gbps appears to work at 133Mbps (TODO: double check this).
+Opening the base reveals a 4GB DDR3 PC3-12800 SO-DIMM (TODO: full specs), the WiFi/BT card (TODO: spec and connector), a push-button switch marked SW2, and a 2.5" SSD, which despite being labelled SATA6.0Gbps appears to work at 133Mbps (TODO: double check this).
 
 TODO: disassemble more
 
@@ -163,11 +169,13 @@ It has a Broadcom WiFi card that does not work with the open-source b43 driver i
 
 Despite having recommended Ubuntu, I now recommend Linux Mint Cinnamon Edition for beginners to Linux, after talking to a friend who researched this and tried it before trying Linux for the first time (Thanks Tom). It has a familiar Windows 10-like desktop environment hat is a little faster on slow hardware I think than GNOME 3 that Ubuntu uses, and seemed to work smoothly.
 
-I think Steam is best documented on Ubuntu, but I assume it isn't hard to get working on Linux Mint.
+I think Steam is best documented on Ubuntu, but I assume it isn't hard to get working on Linux Mint as they are very similar.
 
 Linux Mint using more native packages, rather than FlatPak or Snap packages, means that it is faster than Ubuntu on slow disks.
 
 For all of the following, you should really check the SSH host key when first connecting, unless you completely trust the network you are using, but I am omitting instructions on how to do that. TODO: add this
+
+I am not trying any KDE based distros for this, as KDE is quite resource intensive. It is another common desktop environment though that I recommend people try sometime.
 
 #### Writing USB live/install images on Linux
 
@@ -312,6 +320,78 @@ I booted Pop!_OS 22.04 LTS, which took a while, and then installed it as follows
 * Backing up files somewhere off-site obviously makes sense too
 * Some sort of firewall may be advisable if you are using untrusted networks. I don't think it enables anything by default.
 
+#### Elementary OS
+
+I don't recommend this. The website was down when I first tried to download it, and it isn't as easy to use, polished, well documented, or performant as other options. It looks quite nice, so may be nice if it works better in future. It uses a desktop environment called Pantheon, heavily based on GNOME 3. It feels like a mix of mac OS, Windows and GNOME 3. It bills itself as the "ethical" (among other things) alternative to Windows and mac OS. It asks you to pay what you can to download it. As I am only trying it, I selected $0. I don't see how it is ethical to be asking for money for what is largely free/libre open-source software. To be fair to it, regarding issues below, the CPU is below what it says is the minimum system requirements (modern Core i3).
+
+I booted the USB key for this, using the following (SHA256sum): `c0ee5f9c1fa27a42fe864a6360ca17b3b40504f258ade3e4cfe7b17d94f8acc6  elementaryos-8.0-stable-amd64.20250902rc.iso`, with Ethernet connected, and then did the following:
+
+* Clicked Select with English selected
+* Selected United Kingdom and clicked Select
+* Clicked Select with English (UK)... selected (for the keyboard layout category)
+* Clicked Select with Default selected (for the keyboard layout variant)
+* Selected Erase Disk and Install, and clicked Erase Disk and Install
+* Selected ATA FORESEE 64GB SSD and clicked Next
+* Entered and confirmed an encryption password, and clicked Set Encryption Password
+* Selected Include third-party proprietary drivers when installing and clicked Erase and Install
+* Waited for the installation to finish
+* Clicked Restart Device
+* Waited a while for it to reboot
+* Removed the install USB key and pressed Enter when told to remove the installation medium (don't expect to need it, but as before, leaving it in is fine)
+* Waited a while for it to boot
+* Got bored waiting, and powered off the system by holding the power button and then powering it on again.
+* Entered the disk encryption password when prompted and pressed Enter, and waited for boot to finish
+* Clicked Select with English... selected (I have removed the install USB, so I know this isn't booting it again, but I would have thought it had if I hadn't)
+* Selected English (UK)..., then selected Default and clicked Select to set the keyboard layout
+* Entered `Nick Cripps` for my full name (enter yours), `sipos` for my user name (choose your own), entered and confirmed a user password, in this case the same as the disk encryption password, but this may be undesirable from a security point of view, and entered `pyros` for the device name (choose your own), and clicked Finish Setup
+* Connected to the WiFi network by clicking on the network icon (a double ended arrow with a dotted middle line) in the top right, selecting my WiFi network SSID, and entering the key
+* Unplugged the Ethernet cable
+* The account tile said "Account disabled" at the bottom, whether I chose classic or secure session with the cog icon, so I decided to reboot with the switches icon in the top right, clicking the power icon, and clicking Restart
+* Again, boot hung with a black screen, but I tried typing the disk encryption password and pressing Enter, even though there was no prompt, and it proceeded
+* When it booted, the account was no longer showing as disabled, so I entered my password and pressed Enter to log-in
+* I clicked Next on the first page of the welcome screen
+* I clicked Next again with the default look selected
+* I clicked Next again without enabling Night Light
+* I clicked Next again without enabling anything being deleted, but if I planned to keep this system, I may have selected Trashed and Old temporary files. I prefer to manage Downloads and Screenshots myself
+* I clicked Next without connecting any online accounts
+* I selected Get apps made for elementary OS and reviewed by elementary on AppCentre (which I think opened AppCentre, but it took until I was a couple of steps later, so clicking that box probably did nothing as I closed AppCentre when it opened), and clicked Next
+* I checked Operating System, as well as the already checked Free & Purchased Apps for Automatic Updates, and clicked Next
+* I clicked Get Started
+* I noticed tool-tips for application icons on the dock at the bottom appear behind the icons, rather than in-front of them or above, making them difficult to read, which seems bad
+* From the notification area in the top right, I clicked a notification about a driver update being available. This opened the updates window on the Operating System tab, so I clicked Download to download OS updates. After waiting for these to download and install, it prompted me to restart (annoyingly reminding me of Windows), so I did that with the switches icon in the top right, power button, and clicking Restart with Install pending updates ticked
+* Again, there was no disk encryption password prompt, so I just entered it and pressed Enter
+* The text for the updates being installed was messed up, and there was a kernel stack trace in the background, and I doubt this needed to be done with a reboot, at least for most of them, since it just looked like running apt or dpkg
+* The update job took ages, but eventually had rebooted (not sure why again - very Windows) and there was a prompt to unlock the disk encryption this time
+* After unlocking the disk encryption, and logging in when the login screen was displayed, I clicked the notification icon in the top right, to see a notification telling me to restart the system. It can't possibly be necessary again, so I clicked it, which did nothing. I opened Settings, then System under Administration, which said the OS was up to date now, so I clicked the Hardware tab. This showed some hardware info and the host name, which was editable, but I don't want to change, so I clicked the Firmware tab. This showed only up to date firmware for the BCM20702A0 (the Bluetooth controller I think), so I clicked the Drivers tab, since a notification had previously said there were driver updates available. This just had a tick box against the broadcom-sta-dkms driver, which is obviously in use as the WiFi is working, so I closed this.
+* In Settings, under Power, I changed the Power Mode to Performance (no need to save energy on AC)
+* Under Security and Privacy, it may be advisable to enable the Firewall, but I didn't this time (I assume it is similar to Linux Mint TBH, using ufw)
+* In Language and Region, it said Language support is not installed completely, and kept showing a dialogue saying System Settings isn't responding, so I went back and into Language and Region again, and clicked Complete Installation, entered my password, changed the Region option to United Kingdom from United States, and clicked Set Language and Set System Language
+* As it said some language options would not take effect until I logged-out, I did, by clicking the switches icon in the top right, clicking my user icon, and the logout button and Log Out, and logged back in again
+* I checked the Region and Language options in Settings, and it was displaying United Kingdom for both, and the Set Language button was greyed out, but the Set System Language button was not, so I clicked that again, and got the message about logging-out again, so I did, and then restarted the system, and then, after typing the disk encryption password to no prompt and a blank screen again, logged-in again
+* Even after opening the Language and Region settings, clicking Set system Language again (as again it was not greyed out, but Set Language was), and rebooting (without logging-out first), it remained the same, so either the system language is set properly, or it is not and it can't be done without launching settings as root, which I can't be bothered to do.
+* Again no disk encryption password prompt
+* Opening the AppCentre, it was checking for updates, so I waited for that, but it didn't notify me of any updates
+* I installed LibreOffice from the Office section in AppCentre
+* The AppCentre seemed to crash when finishing this, but it seems to be installed
+* LibreOffice remained on the dock with a dot under it even after it was closed, and it warned about it running in the background without appropriate permission
+* I decided not to install VLC, and instead to try the Music and Videos apps it comes with, and to try the Web (which is epiphany, and largely as I remember it, but video playing on YouTube is unreliable and slow, and testing a mic with a web app I have successfully used before seems to show input in the spectrograph, but not record anything to playback, also the sound settings do not show any apps playing sound when the browser is clearly playing sound continuously), Mail and Code (seems like a simple editor with syntax highlighting, and some sort of project capability, with plugins, not more useful to me really than Mousepad) apps it comes with (TODO: test Mail)
+* Some apps (like RedNotebook, a graphical diary and journal, or Portal, an unofficial MS Teams client, or Learn 6502 Assembly, Program vintage game consoles, in Development, and Mark versus Paul!, Museum of All Things, and OpenNox, Simutrans, Stone Kingdoms, Tuxemon, zelda3, in fun and games, Profectus in internet, Aqueducts, Gaia Sky, Hand Tex, Marble, Plots, in Maths, Science and Engineering, seem worth a look) TODO: check them out, on a different system and distro if possible
+* I installed Maps, since I noticed in the settings there was nothing as a default for this. It appears to use OpenStreetMap by the look and feel of the map, and is apparently based on Atlas.
+* The next time I opened AppCentre it had graphical glitches and stopped responding, before being automatically closed. I am not sure how this distro manages to make Linux so unstable.
+* This time in opening AppCentre, after the Checking for Updates message disappeared, I clicked the sun icon with an up arrow in it, which, based on the tooltip, is for updates and installed apps. It said everything is up to date.
+* AppCentre crashed again while looking at the Accessories category, and again next time when I opened that section before it had finished checking for updates.
+* It again crashed while I was trying to browse the accessories section, when I had waited for the update check to finish before opening it, so I gave up on that.
+* It had a reasonable array of development apps, including CLion, but weirdly PyCharm Professional but not community. I assume the Professional app can be installed and used as community without the extra features, but didn't try.
+* I installed GIMP from the graphics section. Again, it crashed on installation, but it seemed installed. Like with LibreOffice, there was a notification about it running in the background without permission that disappeared when I closed it.
+* Next, I installed Inkscape, again from the graphics section. I accidentally started installing IPE instead, but cancelled it to install Inkscape. As before, it crashed on installation, seemed to have installed properly, but did not notify me about it running in the background without permission. I did get a message about it not responding though. I think both that and the running in the background without permission could be related to the slow CPU. The message about it not responding all the time when it seemed to be working fine was really annoying though. Clicking Force Quit when it had closed but the message kept coming up logged me out, presumably because my whole session crashed. At least that got rid of LibreOffice from the dock.
+* In theory, the Slate text editor that advertises being as dumb as rocks might be interesting to try, but I already like Mousepad on Xfce for a simple text editor. I don't see myself using elementary OS much, so am not going to bother.
+* I noticed the dock tooltips seem to be working properly now (above the icons, not behind them)
+* I installed Reco to test recording and audio playback, since I couldn't playback anything I recorded in the web browser, and the AppCentre didn't crash before I got the notification it was installed (though so many not responding dialogues and it seemed to have hung afterward, and eventually crashed) this time. I got the same notification about Reco running in the background without permission, and Music when I played the file I recorded.
+* Videos struggled to play a 1080p MP4 file, but a 360p video verified to work on my laptop played fine. Sound settings still said no apps were playing sound when playing sound from a video. Presumably apps are using ALSA and it is PulseAudio or PipeWire, or something like that. Seems a bit crap anyway.
+* Dragging files to move them in the file manager doesn't seem to work.
+
+I didn't try the secure session, explore the dyslexia friendly text option, or other accessibility options (of which there are a lot), or look into how application permissions work (how does it restrict them in practice?)
+
 ### Suggested software
 
 For any Linux beginners, I usually install the following GUI apps:
@@ -332,7 +412,7 @@ There are numerous free games for Linux, as well as many with Linux support. For
 
 ## Plans
 
-I plan to try other beginner friendly distros, or ones I am curious about (elementary OS, MX Linux and Nitrux, perhaps NixOS (which is not particularly beginner friendly)), and Windows 10 or 11, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
+I plan to try other beginner friendly distros, or ones I am curious about (other Linux Mint Editions, MX Linux and Nitrux, document trying Debian and Gentoo to compare performance, perhaps a KDE based distro, and perhaps try NixOS (which is not particularly beginner friendly)), and Windows 10 or 11, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
 
 I plan to install Gentoo, either primarily using packages from the Gentoo binhost, or building them in the cloud on my own virtual binhost, and use the device as a media centre machine. XBMC or similar might be a good fit for this, but I plan to use Gentoo and develop my own media centre environment, because that seems more fun.
 
