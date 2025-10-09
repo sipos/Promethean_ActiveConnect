@@ -223,12 +223,18 @@ After selecting Start Linux Mint from the GRUB menu, ignoring some errors and ou
 * Although it isn't required, I rebooted, since there was a kernel update, obviously logging in again after the reboot
 * Launched the firewall configuration tool, entered my password, and enabled it
 * Clicked on the Removable drives icon in the notification area in the bottom right of the screen, and clicked the eject icon for one of the Linux Mint USB key, before removing it
-* Opened the terminal and ran `sudo apt install -y build-essential python3 python3-virtualenv git openssh-server` (to install a C/C++ compiler, make, python3 virtualenv, git and sshd)
+* Opened the terminal and ran `sudo apt install -y build-essential python3 python3-virtualenv git openssh-server` (to install a C/C++ compiler, make, python3 virtualenv, git and sshd), and entered my password
 * Opened the firewall configuration utility from the LM Menu, Preferences, Firewall Configuration, and entered my password
 * Clicked the Rules tab, clicked the plus button, set Policy: Allow, Direction: In, Category: Network, Subcategory: Services, Application: SSH, and clicked Add. This isn't particularly secure, and you should probably limit it to the local network, if you are going to use untrusted networks, and configure sshd to accept only SSH keys, if the security of the system matters.
 * Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
 * Backing up files somewhere off-site obviously makes sense too
 * Enabling the firewall if you are using the device outside your home network or other trusted networks would be sensible too, disabling the SSH rule above, or changing profile, before connecting to untrusted networks
+
+#### Linux Mint Xfce Edition 22.2
+
+See above. Xfce is less easy to use, but more flexible, and possibly less resource intensive. I suggest Cinnamon to new users on Linux, but use Xfce personally.
+
+See [other_distros.md](other_distros.md#linux-mint-xfce-edition-222).
 
 #### Ubuntu 24.04.3 LTS (Noble Numbat)
 
@@ -307,7 +313,7 @@ There are numerous free games for Linux, as well as many with Linux support. For
 
 ## Plans
 
-I plan to try other beginner friendly distros, or ones I am curious about (other Linux Mint Editions, MX Linux and Nitrux, document trying Debian and Gentoo to compare performance, perhaps a KDE based distro, and perhaps try NixOS (which is not particularly beginner friendly)), and Windows 10 or 11, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
+I plan to try other beginner friendly distros, or ones I am curious about (Linux Mint MATE Edition, MX Linux and Nitrux, document trying Debian and Gentoo to compare performance, perhaps a KDE based distro), and Windows 10 or 11, try Steam and RetroArch (with NES, GB, SNES and N64 games), PyCharm, CLion and Arduino on Linux Mint Cinnamon Edition, maybe Hedgewars, SuperTux, SuperTuxKart, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
 
 I plan to install Gentoo, either primarily using packages from the Gentoo binhost, or building them in the cloud on my own virtual binhost, and use the device as a media centre machine. XBMC or similar might be a good fit for this, but I plan to use Gentoo and develop my own media centre environment, because that seems more fun.
 

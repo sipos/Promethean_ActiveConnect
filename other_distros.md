@@ -130,3 +130,59 @@ I booted the USB key for this, using the following (SHA256sum): `c0ee5f9c1fa27a4
 * I also couldn't get Mail to work with a mail.com account I created for the purpose, with the same issue. The machine was definitely online - I could visit <https://mail.com/> fine in Web. The firewall wasn't enabled. There were no app specific settings or permissions for Mail, and no option to open any settngs in the Mail app. Clearly it just doesn't work.
 
 I didn't try the secure session, explore the dyslexia friendly text option, or other accessibility options (of which there are a lot), or look into how application permissions work (TODO: how does it restrict them in practice?)
+
+## Linux Mint Xfce Edition 22.2
+
+Xfce is less easy to use than Cinnamon, but more flexible, and possibly less resource intensive. I suggest Cinnamon to new users on Linux, but use Xfce personally.
+
+The Xfce environment on Linux Mint is rather Windows 10-like, unlike the default Xfce environment, but obviously it can be changed.
+
+I used the following image for this (sha256sum): `dea13e523dca28e3aa48d90167a6368c63e1b3251492115417fdbf648551558f  linuxmint-22.2-xfce-64bit.iso`
+
+* Selected Start Linux Mint from the GRUB menu
+* Ignored various errors/messages from the kernel/boot sequence and waited for the desktop to appear
+* Clicked the LM menu button, and under System, clicked Driver Manager
+* Waited for it to scan for drivers
+* Selected the broadcom-sta-dkms option, and clicked Apply Changes
+* Closed Driver Manager
+* Clicked on the network settings icon (showing no connection, a pair of arrows with a cross) on the bottom right of the screen in the notification area
+* Clicked on my WiFi network SSID under Available networks, and entered the key and pressed Enter
+* Checked the internet was working by opening Firefox and navigating to <https://bbc.co.uk/>
+* Double clicked the Install Linux Mint desktop icon
+* Clicked Continue with English selected as the language
+* Clicked on the English (UK) keyboard layout category and then clicked Continue with the English (UK) variant selected
+* Selected Install multimedia codecs and clicked Continue
+* Selected Erase disk and install Linux Mint, clicked Advanced features..., selected Use LVM with the new Linux Mint instalation and Encrypt the new Linux Mint instalation for security, clicked OK, (different wording may be present if it doesn't detect another OS) then clicked Install Now
+* Entered and confirmed a security key and clicked Install Now (I did not enable a recovery key - I won't forget the key, and did not bother to overwrite the empty disk space)
+* Clicked Continue on the confirmation box about partitioning
+* Clicked Continue with London selected as my location
+* Entered my name as `Nick Cripps` (obviously enter your own name, bearing in mind it will be shown on the login screen in full), computer name as `pyros` (this is what I have chosen for this device, choose something else if you are following this, but use lowercase), `sipos` as username (again, choose something different if you are not me, this is what I use for obscure reasons), entered a password and confirmed it, left Require my password to log in checked (you may wish to disable this if you use disk encryption and do not plan to leave the system unattended while powered, or are using it where a password is unnecessary), and left Encrypt my home folder unchecked (use full disk encryption for greater security, unless you share the computer with someone else you want privacy from) and clicked Continue
+* Waited a while for installation to complete
+* Clicked Restart Now
+* Pressed Enter when told to remove the USB media (unless you set it to boot from USB first, instead of just selecting it one-time from the BIOS boot override options or the F8 menu, this is fine)
+* After restarting, the machine seemed to have hung, with a blank screen and no activity from the disk activity LED, so I tried just typing the disk encryption password and pressing Enter, which seemed to work. Given this also happened with elementary OS, another Ubuntu derrivative, I am assumoing it is something to do with Ubuntu, or the devices's frameuffer before the graphics driver is loaded.
+* Waited a while for the system to boot, typed my login password and pressed Enter
+* Clicked Let's go! on the Welcome window
+* Clicked Launch for the Driver Manager
+* It said "You appear to be offline. Connct to theinternet or insert the Linux Mint instalation disc (or USB stick)." so I clicked OK, nothing changed, so I removed and re-inserted it, and clicked OK again.
+* Clicked Mount installation media in the Driver Manager window and entered my password
+* Selected broadcom-sta-dkms and clicked Apply Changes and entered my password
+* Clicked Restart (you can avoid this if you want to, by using `rmmod` to remove conflicting modules (`b43`, `b43legacy`, `b44`, `bcma`, `brcm80211`, `brcmsmac` and `ssb`), and `modprobe` to load the `wl` module now it is installed (you may also need `cfg80211`, but restarting is easier to describe)
+* Again, after restarting, the machine seemed to have hung, with a blank screen and no activity from the disk activity LED, so I tried just typing the disk encryption password and pressing Enter
+* Entered my password and pressed Enter again to log in
+* Checked the WiFi network was connected (credentials were copied from the live environment)
+* Clicked Let's go! on the Welcome window
+* Clicked Launch for the Update Manager, and clicked OK in the Update Manager, then Apply the Update to update it, and entered my password
+* Opened Settings, clicked on Languages, clicked Apply System-Wide, and entered my password
+* The Update Manager still hadn't loaded available updates, so I closed it and reopened it
+* I clicked Install Updates in the Update Manager to install all available updates and entered my password again
+* Although it isn't required, I rebooted, since there was a kernel update, and I left the machine overnight to see if a disk encryption password prompt would appear (it didn't, but entering the passwors worked), obviously logging in again after the reboot
+* Launched the firewall configuration tool, entered my password, and enabled it
+* Removed the install USB key, since it didn't seem to be detected/mounted (possibly related to leaving the system overnight waiting for a password prompt)
+* Opened the terminal and ran `sudo apt install -y build-essential python3 python3-virtualenv git openssh-server` (to install a C/C++ compiler, make, python3 virtualenv, git and sshd), and entered my password
+* Opened the firewall configuration utility from the LM Menu, Preferences, Firewall Configuration, and entered my password
+* Clicked the Rules tab, clicked the plus button, set Policy: Allow, Direction: In, Category: Network, Subcategory: Services, Application: SSH, and clicked Add, and closed the add window. This isn't particularly secure, and you should probably limit it to the local network, if you are going to use untrusted networks, and configure sshd to accept only SSH keys, if the security of the system matters.
+* Checked I could logoin by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine
+* Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
+* Backing up files somewhere off-site obviously makes sense too
+* Enabling the firewall if you are using the device outside your home network or other trusted networks would be sensible too, disabling the SSH rule above, or changing profile, before connecting to untrusted networks
