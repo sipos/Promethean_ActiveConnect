@@ -236,6 +236,12 @@ See above. Xfce is less easy to use, but more flexible, and possibly less resour
 
 See [other_distros.md](other_distros.md#linux-mint-xfce-edition-222).
 
+#### Linux Mint MATE Edition 22.2
+
+See above. MATE is perhaps less easy to use than Cinnamon, but I'm not sure, and has a longer history (since it is a continuation of GNOME 2), and maybe possibly less resource intensive? I suggest Cinnamon to new users on Linux, but I wanted to try this as I've never used MATE before, and was curious how it compared on Linux Mint to Xfce and Cinnamon. I think that Linux Mint customises all the desktops it supports to be similar though (at least Xfce was unlike the default Xfce).
+
+See [other_distros.md](other_distros.md#linux-mint-mate-edition-222).
+
 #### Ubuntu 24.04.3 LTS (Noble Numbat)
 
 I tried installing this with the boot mode set to Win8 UEFI, and found it to be somewhat unstable, and it failed with an IO error updating the EFI boot configuration with `grub-install`. 
@@ -313,7 +319,7 @@ There are numerous free games for Linux, as well as many with Linux support. For
 
 ## Plans
 
-I plan to try other beginner friendly distros, or ones I am curious about (Linux Mint MATE Edition, MX Linux and Nitrux, document trying Debian and Gentoo to compare performance, perhaps a KDE based distro), and Windows 10 or 11, try Steam and RetroArch (with NES, GB, SNES and N64 games), PyCharm, CLion and Arduino on Linux Mint Cinnamon Edition, maybe Hedgewars, SuperTux, SuperTuxKart, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
+I plan to try other beginner friendly/low resource distros, or ones I am curious about (MX Linux and Nitrux, document trying Debian and Gentoo to compare performance, perhaps a KDE based distro), and Windows 10 or 11, try Steam and RetroArch (with NES, GB, SNES and N64 games), PyCharm, CLion and Arduino on Linux Mint Cinnamon Edition, maybe Hedgewars, SuperTux, SuperTuxKart, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
 
 I plan to install Gentoo, either primarily using packages from the Gentoo binhost, or building them in the cloud on my own virtual binhost, and use the device as a media centre machine. XBMC or similar might be a good fit for this, but I plan to use Gentoo and develop my own media centre environment, because that seems more fun.
 
