@@ -126,8 +126,8 @@ I booted the USB key for this, using the following (SHA256sum): `c0ee5f9c1fa27a4
 * I installed Reco to test recording and audio playback, since I couldn't playback anything I recorded in the web browser, and the AppCentre didn't crash before I got the notification it was installed (though so many not responding dialogues and it seemed to have hung afterward, and eventually crashed) this time. I got the same notification about Reco running in the background without permission, and Music when I played the file I recorded.
 * Videos struggled to play a 1080p MP4 file, but a 360p video verified to work on my laptop played fine. Sound settings still said no apps were playing sound when playing sound from a video. Presumably apps are using ALSA and it is PulseAudio or PipeWire, or something like that. Seems a bit crap anyway.
 * Dragging files to move them in the file manager doesn't seem to work.
-* I added a test GMail account to online accounts, via Mail, to test Mail. I used the settings it suggested, and got a message saying IMAP verification failed, and that you must be working online (which I thought I was) to do this. I expect the default settings don't work for GMail. It [sounds like](https://support.google.com/mail/answer/7126229?visit_id=638955252290258081-4262774673&hl=en&rd=1) GMail doesn't support password based authentication anymore, and Mail in elementary OS doesn't support anything else.
-* I also couldn't get Mail to work with a mail.com account I created for the purpose, with the same issue. The machine was definitely online - I could visit <https://mail.com/> fine in Web. The firewall wasn't enabled. There were no app specific settings or permissions for Mail, and no option to open any settngs in the Mail app. Clearly it just doesn't work.
+* I added a test GMail account to online accounts, via Mail, to test Mail. I used the settings it suggested, and got a message saying IMAP verification failed, and that you must be working online (which I thought I was) to do this. I expect the default settings don't work for GMail. It [sounds like](https://support.google.com/mail/answer/7126229?visit_id=638955252290258081-4262774673&hl=en&rd=1) GMail doesn't support password based authentication any more, and Mail in elementary OS doesn't support anything else.
+* I also couldn't get Mail to work with a mail.com account I created for the purpose, with the same issue. The machine was definitely online - I could visit <https://mail.com/> fine in Web. The firewall wasn't enabled. There were no app specific settings or permissions for Mail, and no option to open any settings in the Mail app. Clearly it just doesn't work.
 
 I didn't try the secure session, explore the dyslexia friendly text option, or other accessibility options (of which there are a lot), or look into how application permissions work (TODO: how does it restrict them in practice?)
 
@@ -152,7 +152,7 @@ I used the following image for this (sha256sum): `dea13e523dca28e3aa48d90167a636
 * Clicked Continue with English selected as the language
 * Clicked on the English (UK) keyboard layout category and then clicked Continue with the English (UK) variant selected
 * Selected Install multimedia codecs and clicked Continue
-* Selected Erase disk and install Linux Mint, clicked Advanced features..., selected Use LVM with the new Linux Mint instalation and Encrypt the new Linux Mint instalation for security, clicked OK, (different wording may be present if it doesn't detect another OS) then clicked Install Now
+* Selected Erase disk and install Linux Mint, clicked Advanced features..., selected Use LVM with the new Linux Mint installation and Encrypt the new Linux Mint installation for security, clicked OK, (different wording may be present if it doesn't detect another OS) then clicked Install Now
 * Entered and confirmed a security key and clicked Install Now (I did not enable a recovery key - I won't forget the key, and did not bother to overwrite the empty disk space)
 * Clicked Continue on the confirmation box about partitioning
 * Clicked Continue with London selected as my location
@@ -160,11 +160,11 @@ I used the following image for this (sha256sum): `dea13e523dca28e3aa48d90167a636
 * Waited a while for installation to complete
 * Clicked Restart Now
 * Pressed Enter when told to remove the USB media (unless you set it to boot from USB first, instead of just selecting it one-time from the BIOS boot override options or the F8 menu, this is fine)
-* After restarting, the machine seemed to have hung, with a blank screen and no activity from the disk activity LED, so I tried just typing the disk encryption password and pressing Enter, which seemed to work. Given this also happened with elementary OS, another Ubuntu derrivative, I am assumoing it is something to do with Ubuntu, or the devices's frameuffer before the graphics driver is loaded.
+* After restarting, the machine seemed to have hung, with a blank screen and no activity from the disk activity LED, so I tried just typing the disk encryption password and pressing Enter, which seemed to work. Given this also happened with elementary OS, another Ubuntu derivative, I am assuming it is something to do with Ubuntu, or the device’s framebuffer before the graphics driver is loaded.
 * Waited a while for the system to boot, typed my login password and pressed Enter
 * Clicked Let's go! on the Welcome window
 * Clicked Launch for the Driver Manager
-* It said "You appear to be offline. Connct to the internet or insert the Linux Mint instalation disc (or USB stick)." so I clicked OK, nothing changed, so I removed and re-inserted it, and clicked OK again.
+* It said "You appear to be offline. Connect to the internet or insert the Linux Mint installation disc (or USB stick)." so I clicked OK, nothing changed, so I removed and re-inserted it, and clicked OK again.
 * Clicked Mount installation media in the Driver Manager window and entered my password
 * Selected broadcom-sta-dkms and clicked Apply Changes and entered my password
 * Clicked Restart (you can avoid this if you want to, by using `rmmod` to remove conflicting modules (`b43`, `b43legacy`, `b44`, `bcma`, `brcm80211`, `brcmsmac` and `ssb`), and `modprobe` to load the `wl` module now it is installed (you may also need `cfg80211`, but restarting is easier to describe)
@@ -176,13 +176,13 @@ I used the following image for this (sha256sum): `dea13e523dca28e3aa48d90167a636
 * Opened Settings, clicked on Languages, clicked Apply System-Wide, and entered my password
 * The Update Manager still hadn't loaded available updates, so I closed it and reopened it
 * I clicked Install Updates in the Update Manager to install all available updates and entered my password again
-* Although it isn't required, I rebooted, since there was a kernel update, and I left the machine overnight to see if a disk encryption password prompt would appear (it didn't, but entering the passwors worked), obviously logging in again after the reboot
+* Although it isn't required, I rebooted, since there was a kernel update, and I left the machine overnight to see if a disk encryption password prompt would appear (it didn't, but entering the password worked), obviously logging in again after the reboot
 * Launched the firewall configuration tool, entered my password, and enabled it
 * Removed the install USB key, since it didn't seem to be detected/mounted (possibly related to leaving the system overnight waiting for a password prompt)
 * Opened the terminal and ran `sudo apt install -y build-essential python3 python3-virtualenv git openssh-server` (to install a C/C++ compiler, make, python3 virtualenv, git and sshd), and entered my password
 * Opened the firewall configuration utility from the LM Menu, Preferences, Firewall Configuration, and entered my password
 * Clicked the Rules tab, clicked the plus button, set Policy: Allow, Direction: In, Category: Network, Subcategory: Services, Application: SSH, and clicked Add, and closed the add window. This isn't particularly secure, and you should probably limit it to the local network, if you are going to use untrusted networks, and configure sshd to accept only SSH keys, if the security of the system matters.
-* Checked I could logoin by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine
+* Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine
 * Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
 * Backing up files somewhere off-site obviously makes sense too
 * Enabling the firewall if you are using the device outside your home network or other trusted networks would be sensible too, disabling the SSH rule above, or changing profile, before connecting to untrusted networks
@@ -206,7 +206,7 @@ I used the following image for this (sha256sum): `21f5a5f7be652c60b20ba799632809
 * Clicked Continue with English selected as the language
 * Clicked on the English (UK) keyboard layout category and then clicked Continue with the English (UK) variant selected
 * Selected Install multimedia codecs and clicked Continue
-* Selected Erase disk and install Linux Mint, didn't select any adanced features, (different wording may be present if it doesn't detect another OS) then clicked Install Now
+* Selected Erase disk and install Linux Mint, didn't select any advanced features, (different wording may be present if it doesn't detect another OS) then clicked Install Now
 * Clicked Continue on the confirmation box about partitioning
 * Clicked Continue with London selected as my location
 * Entered my name as `Nick Cripps` (obviously enter your own name, bearing in mind it will be shown on the login screen in full), computer name as `pyros` (this is what I have chosen for this device, choose something else if you are following this, but use lowercase), `sipos` as username (again, choose something different if you are not me, this is what I use for obscure reasons), entered a password and confirmed it, left Require my password to log in checked (you may wish to disable this if you use disk encryption and do not plan to leave the system unattended while powered, or are using it where a password is unnecessary), and left Encrypt my home folder unchecked (use full disk encryption for greater security, unless you share the computer with someone else you want privacy from) and clicked Continue
@@ -223,15 +223,53 @@ I used the following image for this (sha256sum): `21f5a5f7be652c60b20ba799632809
 * Checked the WiFi network was connected (credentials were copied from the live environment)
 * Clicked Let's go! on the Welcome window
 * Clicked Launch for the Update Manager, and clicked OK in the Update Manager, then Apply the Update to update it, and entered my password
-* Right clicked the Linux Mint 22.2 MATE 64-bit USB key icon on the desktop and clicked Eject, then removed the drive when the notification sayong it was safe to do so appeared
+* Right clicked the Linux Mint 22.2 MATE 64-bit USB key icon on the desktop and clicked Eject, then removed the drive when the notification saying it was safe to do so appeared
 * I clicked Install Updates in the Update Manager to install all available updates and entered my password again
 * Opened Control Centre, clicked on Languages, clicked Apply System-Wide, and entered my password
-* Although it isn't required (thpugh an orange box briefly said it was before disappearing), I rebooted, since there was a kernel update, obviously logging in after the reboot
+* Although it isn't required (though an orange box briefly said it was before disappearing), I rebooted, since there was a kernel update, obviously logging in after the reboot
 * Launched the firewall configuration tool, entered my password, and enabled it
 * Opened the terminal and ran `sudo apt install -y build-essential python3 python3-virtualenv git openssh-server` (to install a C/C++ compiler, make, python3 virtualenv, git and sshd), and entered my password
 * Opened the firewall configuration utility from the LM Menu, All Applications, Preferences, Firewall Configuration, and entered my password
 * Clicked the Rules tab, clicked the plus button, set Policy: Allow, Direction: In, Category: Network, Subcategory: Services, Application: SSH, and clicked Add, and closed the add window. This isn't particularly secure, and you should probably limit it to the local network, if you are going to use untrusted networks, and configure sshd to accept only SSH keys, if the security of the system matters.
-* Checked I could logoin by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine
+* Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine
 * Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
 * Backing up files somewhere off-site obviously makes sense too
 * Enabling the firewall if you are using the device outside your home network or other trusted networks would be sensible too, disabling the SSH rule above, or changing profile, before connecting to untrusted networks
+
+## MX Linux Xfce x64 23.6
+
+This seems like a nice live system or distro for a bit more experienced users, and a good system for RAM constrained systems. It feels a little less flexible than default Xfce, but perhaps a bit more overall polished for desktop use than Xfce on Debian or Gentoo. It includes and activates the `wl` proprietary WiFi driver automatically. It has some nice tools to do common tasks easily with a GUI, and great tools to create a bootable live system backup, and does not use systemd by default. It is a little less command-line based than I would like though. I would switch to this if I didn't like Gentoo so much, but I'd recommend Linux Mint Cinnamon Edition to new users.
+
+I used the following image for this (sha256sum): `6960a253320a7615217b07593fcd04f7ab6126a87cce1398e2c153c45ca03978  MX-23.6_x64.iso`
+
+* Pressed enter in syslinux boot menu on MX-23.6 x64 (April 13 2025)
+* Waited for boot, ignoring kernel messages
+* Clicked on the disconnected Ethernet icon on the left, and clicked on my WiFi network under Available Networks, entered the key and pressed Enter
+* Clicked on the MX User Manual icon on the desktop, then closed the PDF viewer and user manual PDF file it opened
+* Clicked on the Firefox icon and navigated to <https://bbc.co.uk/> to check internet connectivity was working, then closed Firefox
+* Clicked on Install MX Linux on the MX Welcome window
+* Waited for the installation media check to finish
+* Clicked Change Keyboard Settings, clicked the plus button, Selected English (UK) from the Layout menu, left the variant menu on No Variant, clicked OK, and then clicked on the us English (US) entry, clicked the minus button, clicked OK, clicked Next
+* Selected Regular install using the entire disk, left the disk menu on sda (59,6 GB GPT - FORESEE 64GB SSD), left the root/home space slider at 100% for root, left Encrypt unselected, and checked Enable hibernation support, and clicked Next
+* Clicked Start on the confirmation page
+* Changed the computer name to `pyros` (this is what I am naming this device, choose your own hostname if you follow this), the computer domain to `0point.cc` (this is my domain, use your own or leave it if you are following this), unselected SaMBa Server for MS Networking, and clicked Next
+* Changed localization defaults to United Kingdom - British English, the timezone to Europe and London, left system clock uses local time unchecked, left the format as 13:57, clicked view on Service Settings, but then Back, and then clicked Next
+* Entered `sipos` (this, for obscure reasons, is the username I use, choose your own if following this) for default user login name, entered and confirmed a password for the default user, left the Root (administrator) Account checkbox unchecked, left the Autologin and Save live desktop changes checkboxes unchecked, and clicked Next
+* Waited for the install to finish
+* Left Automatically reboot he system when the installer is closed checked, and clicked on Finish
+* Waited for the system to reboot, entered my password, and pressed Enter
+* The WiFi network auto-connected, thanks to the config being copied from the live environment
+* Clicked on the green box icon, ran a full upgrade, entered my password, pressed y and enter to accept, waited for update to complete (which took ages), (did the next two points while waiting), pressed enter to close
+* I tested each of the options from the MX Welcome screen, and the MX Tools window, but didn't change any settings, then closed it
+* Clicked on the eject icon in the notification area, but no removable media was show, so I opened the file manager, which showed the MX-Live USB under Devices with an eject icon, so I clicked it, and removed the live USB when it said it was safe to do so
+* I noticed that my full name wasn't asked for, so not set in `/etc/passwd`, so I updated it with mugshot
+* Since updates included changes to initrd and kernel I think, I rebooted, and logged-in with my password
+* Opened MX Package Installer, and added GIMP Full and Inkscape from Graphics, and GB_English_Firefox, GB_English_Libreoffice and GB_English_Thunderbird from Language, and clicked Install, entered my password, waited for the install to happen, clicked OK to confirm installation of the list of packages and deps, entered y and pressed Enter to install, clicked OK on the dialogue saying it had finished, and close
+* Opened the terminal and ran `sudo apt install -y build-essential python3 python3-virtualenv git openssh-server` (to install a C/C++ compiler, make, python3 virtualenv, git and sshd), and entered my password
+* Rebooted (probably not necessary
+* Opened the firewall configuration utility from the MX Menu, Settings, Firewall Configuration, and entered my password
+* Clicked the Rules tab, clicked the plus button, set Policy: Allow, Direction: In, Category: Network, Subcategory: Services, Application: SSH, and clicked Add, and closed the add window. This isn't particularly secure, and you should probably limit it to the local network, if you are going to use untrusted networks, and configure sshd to accept only SSH keys, if the security of the system matters.
+* Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine
+* Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
+* Backing up files somewhere off-site obviously makes sense too
+* Enabling a firewall if you are using the device outside your home network or other trusted networks would be sensible too, disabling the SSH rule above, or changing profile, before connecting to untrusted networks
