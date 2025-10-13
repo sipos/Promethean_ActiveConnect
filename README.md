@@ -299,7 +299,7 @@ I don't recommend this. The website was down when I first tried to download it, 
 
 See [other_distros.md](other_distros.md#elementary-os).
 
-## MX Linux Xfce x64 23.6
+#### MX Linux Xfce x64 23.6
 
 This seems like a nice live system or distro for a bit more experienced users, and a good system for RAM constrained systems. It feels a little less flexible than default Xfce, but perhaps a bit more overall polished for desktop use than Xfce on Debian or Gentoo. It includes and activates the `wl` proprietary WiFi driver automatically. It has some nice tools to do common tasks easily with a GUI, and great tools to create a bootable live system backup, and does not use systemd by default. It is a little less command-line based than I would like though. I would switch to this if I didn't like Gentoo so much, but I'd recommend Linux Mint Cinnamon Edition to new users.
 
