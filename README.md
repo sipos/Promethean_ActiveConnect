@@ -299,6 +299,12 @@ I don't recommend this. The website was down when I first tried to download it, 
 
 See [other_distros.md](other_distros.md#elementary-os).
 
+## MX Linux Xfce x64 23.6
+
+This seems like a nice live system or distro for a bit more experienced users, and a good system for RAM constrained systems. It feels a little less flexible than default Xfce, but perhaps a bit more overall polished for desktop use than Xfce on Debian or Gentoo. It includes and activates the `wl` proprietary WiFi driver automatically. It has some nice tools to do common tasks easily with a GUI, and great tools to create a bootable live system backup, and does not use systemd by default. It is a little less command-line based than I would like though. I would switch to this if I didn't like Gentoo so much, but I'd recommend Linux Mint Cinnamon Edition to new users.
+
+See [other_distros.md](other_distros.md#mx-linux-xfce-x64-236).
+
 ### Suggested software
 
 For any Linux beginners, I usually install the following GUI apps:
@@ -319,7 +325,7 @@ There are numerous free games for Linux, as well as many with Linux support. For
 
 ## Plans
 
-I plan to try other beginner friendly/low resource distros, or ones I am curious about (MX Linux (both standard x64 and advanced hardware support versions, which I think basically have different kernels), document trying Debian and Gentoo to compare performance, perhaps a KDE based distro), and Windows 10 or 11, try Steam and RetroArch (with NES, GB, SNES and N64 games), PyCharm, CLion and Arduino on Linux Mint Cinnamon Edition, maybe Hedgewars, SuperTux, SuperTuxKart, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
+I plan to try other beginner friendly/low resource distros, or ones I am curious about (MX Linux (advanced hardware support versions, which I think basically has a different kernel), document trying Debian and Gentoo to compare performance, perhaps a KDE based distro), and Windows 10 or 11, try Steam and RetroArch (with NES, GB, SNES and N64 games), PyCharm, CLion and Arduino on Linux Mint Cinnamon Edition, maybe Hedgewars, SuperTux, SuperTuxKart, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
 
 I plan to install Gentoo, either primarily using packages from the Gentoo binhost, or building them in the cloud on my own virtual binhost, and use the device as a media centre machine. XBMC or similar might be a good fit for this, but I plan to use Gentoo and develop my own media centre environment, because that seems more fun.
 
