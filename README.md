@@ -305,6 +305,12 @@ This seems like a nice live system or distro for a bit more experienced users, a
 
 See [other_distros.md](other_distros.md#mx-linux-xfce-x64-236).
 
+#### MX Linux Xfce AHS x64 23.6
+
+I didn't notice	a difference with the above (the non-AHS version), but I didn't	look closely at	what was supported or not or performance etc.
+
+See [other_distros.md](other_distros.md#mx-linux-xfce-ahs-x64-236).
+
 ### Suggested software
 
 For any Linux beginners, I usually install the following GUI apps:
@@ -325,7 +331,7 @@ There are numerous free games for Linux, as well as many with Linux support. For
 
 ## Plans
 
-I plan to try other beginner friendly/low resource distros, or ones I am curious about (MX Linux (advanced hardware support versions, which I think basically has a different kernel), document trying Debian and Gentoo to compare performance, perhaps a KDE based distro), and Windows 10 or 11, try Steam and RetroArch (with NES, GB, SNES and N64 games), PyCharm, CLion and Arduino on Linux Mint Cinnamon Edition, maybe Hedgewars, SuperTux, SuperTuxKart, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
+I plan to document trying Debian and Gentoo to compare performance, and perhaps try a KDE based distro, try Windows 10 or 11, try Steam and RetroArch (with NES, GB, SNES and N64 games), PyCharm, CLion and Arduino on Linux Mint Cinnamon Edition, maybe Hedgewars, SuperTux, SuperTuxKart, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
 
 I plan to install Gentoo, either primarily using packages from the Gentoo binhost, or building them in the cloud on my own virtual binhost, and use the device as a media centre machine. XBMC or similar might be a good fit for this, but I plan to use Gentoo and develop my own media centre environment, because that seems more fun.
 

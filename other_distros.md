@@ -238,13 +238,13 @@ I used the following image for this (sha256sum): `21f5a5f7be652c60b20ba799632809
 
 ## MX Linux Xfce x64 23.6
 
-This seems like a nice live system or distro for a bit more experienced users, and a good system for RAM constrained systems. It feels a little less flexible than default Xfce, but perhaps a bit more overall polished for desktop use than Xfce on Debian or Gentoo. It includes and activates the `wl` proprietary WiFi driver automatically. It has some nice tools to do common tasks easily with a GUI, and great tools to create a bootable live system backup, and does not use systemd by default. It is a little less command-line based than I would like though. I would switch to this if I didn't like Gentoo so much, but I'd recommend Linux Mint Cinnamon Edition to new users.
+This seems like a nice live system or distro for a bit more experienced users, and a good system for RAM constrained systems. It feels a little less flexible than default Xfce, but perhaps a bit more overall polished for desktop use than Xfce on Debian or Gentoo. It includes and activates the `wl` proprietary WiFi driver automatically. It has some nice tools to do common tasks easily with a GUI, and great tools to create a bootable live system backup, and does not use systemd by default. It is a little less command-line based than I would like though. I would switch to this if I didn't like Gentoo so much, but I'd recommend Linux Mint Cinnamon Edition to new users. I disliked that updates took ages to generate loads of locales I am not using, but this is easily fixed. I tried reinstalling, and rebooting a couple of times, with full disk encryption, and that seemed to work fine too.
 
 I used the following image for this (sha256sum): `6960a253320a7615217b07593fcd04f7ab6126a87cce1398e2c153c45ca03978  MX-23.6_x64.iso`
 
 * Pressed enter in syslinux boot menu on MX-23.6 x64 (April 13 2025)
 * Waited for boot, ignoring kernel messages
-* Clicked on the disconnected Ethernet icon on the left, and clicked on my WiFi network under Available Networks, entered the key and pressed Enter
+* Clicked on the disconnected Ethernet icon on the left, and clicked on my WiFi network under Available Networks, clicked in the key text box, entered the key and pressed Enter
 * Clicked on the MX User Manual icon on the desktop, then closed the PDF viewer and user manual PDF file it opened
 * Clicked on the Firefox icon and navigated to <https://bbc.co.uk/> to check internet connectivity was working, then closed Firefox
 * Clicked on Install MX Linux on the MX Welcome window
@@ -259,14 +259,59 @@ I used the following image for this (sha256sum): `6960a253320a7615217b07593fcd04
 * Left Automatically reboot he system when the installer is closed checked, and clicked on Finish
 * Waited for the system to reboot, entered my password, and pressed Enter
 * The WiFi network auto-connected, thanks to the config being copied from the live environment
-* Clicked on the green box icon, ran a full upgrade, entered my password, pressed y and enter to accept, waited for update to complete (which took ages), (did the next two points while waiting), pressed enter to close
+* Clicked on the green box icon	in the notification area, ran a full upgrade, entered my password, pressed y and enter to accept, waited for update to complete (which took ages, especially generating unneeded locales), (did the next two points while waiting), pressed enter to close
 * I tested each of the options from the MX Welcome screen, and the MX Tools window, but didn't change any settings, then closed it
 * Clicked on the eject icon in the notification area, but no removable media was show, so I opened the file manager, which showed the MX-Live USB under Devices with an eject icon, so I clicked it, and removed the live USB when it said it was safe to do so
 * I noticed that my full name wasn't asked for, so not set in `/etc/passwd`, so I updated it with mugshot
 * Since updates included changes to initrd and kernel I think, I rebooted, and logged-in with my password
 * Opened MX Package Installer, and added GIMP Full and Inkscape from Graphics, and GB_English_Firefox, GB_English_Libreoffice and GB_English_Thunderbird from Language, and clicked Install, entered my password, waited for the install to happen, clicked OK to confirm installation of the list of packages and deps, entered y and pressed Enter to install, clicked OK on the dialogue saying it had finished, and close
 * Opened the terminal and ran `sudo apt install -y build-essential python3 python3-virtualenv git openssh-server` (to install a C/C++ compiler, make, python3 virtualenv, git and sshd), and entered my password
-* Rebooted (probably not necessary
+* Rebooted (not necessary)
+* Opened the firewall configuration utility from the MX Menu, Settings, Firewall Configuration, and entered my password
+* Clicked the Rules tab, clicked the plus button, set Policy: Allow, Direction: In, Category: Network, Subcategory: Services, Application: SSH, and clicked Add, and closed the add window. This isn't particularly secure, and you should probably limit it to the local network, if you are going to use untrusted networks, and configure sshd to accept only SSH keys, if the security of the system matters.
+* Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine
+* Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
+* Backing up files somewhere off-site obviously makes sense too
+* Enabling a firewall if you are using the device outside your home network or other trusted networks would be sensible too, disabling the SSH rule above, or changing profile, before connecting to untrusted networks
+
+I tried PyCharm and CLion, downloaded as tgz files, from the JetBrains website, as well, on my second install that had FDE. All seems fine.
+
+I also tested suspend, which works and puts the system in standby, there is no hibernate option, presumably because it is kind of unnecessary. I did have to enable the lock screen in Xfce screensaver settings to get the screen to lock on suspend, and had to turn off the on-screen keyboard to get rid of it. Mouse movements wake the system by default, which is probably undesirable, but this is basically a laptop system - not much power consumption and silent.
+
+## MX Linux Xfce AHS x64 23.6
+
+I didn't notice a difference with the above (the non-AHS version), but I didn't look closely at what was supported or not or performance etc.
+
+I used the following image for this (sha256sum): `fe830d95bf124cb8feb26f92ad1934acf3762fb540167c4db4dffee2c40c756f  MX-23.6_ahs_x64.iso`
+
+Not done yet, but copied from above:
+* Pressed enter in syslinux boot menu on MX-23.6 ahs x64 (April 13 2025)
+* Waited for boot, ignoring kernel messages
+* Clicked on the disconnected Ethernet icon on the left, and clicked on my WiFi network under Available Networks, clicked in the key text box, entered the key and pressed Enter
+* Clicked on the Firefox icon and navigated to <https://bbc.co.uk/> to check internet connectivity was working, then closed Firefox
+* Clicked on Install MX Linux on the MX Welcome window
+* Waited for the installation media check to finish
+* Clicked Change Keyboard Settings, clicked the plus button, Selected English (UK) from the Layout menu, left the variant menu on No Variant, clicked OK, and then clicked on the us English (US) entry, clicked the minus button, clicked OK, clicked Next
+* Selected Regular install using the entire disk, left the disk menu on sda (59,6 GB GPT - FORESEE 64GB SSD), left the root/home space slider at 100% for root, checked Encrypt and Enable hibernation support, and clicked Next
+* Entered and confirmed an encryption password, and clicked Next
+* Clicked Start on the confirmation page
+* Changed the computer name to `pyros` (this is what I am naming this device, choose your own hostname if you follow this), the computer domain to `0point.cc` (this is my domain, use your own or leave it if you are following this), unselected SaMBa Server for MS Networking, and clicked Next
+* Changed localization defaults to United Kingdom - British English, the timezone to Europe and London, left system clock uses local time unchecked, left the format as 13:57, clicked view on Service Settings, but then Back, and then clicked Next
+* Entered `sipos` (this, for obscure reasons, is the username I use, choose your own if following this) for default user login name, entered and confirmed a password for the default user, left the Root (administrator) Account checkbox unchecked, left the Autologin and Save live desktop changes checkboxes unchecked, and clicked Next
+* Waited for the install to finish
+* Left Automatically reboot he system when the installer is closed checked, and clicked on Finish
+* Waited for the system to reboot, entered the disk encryption password and pressed Enter, entered my password and pressed Enter
+* The WiFi network auto-connected, thanks to the config being copied from the live environment
+* Right clicked on the box icon in the notification area, and selected Check for updates
+* Clicked on the green box icon	in the notification area, ran a full upgrade, entered my password, pressed y and enter to accept, waited for update to complete (which took ages, especially generating unneeded locales), (did the next two points while waiting), pressed enter to close
+* Clicked on the eject icon in the notification area, but no removable media was show, so I opened the file manager, which showed the MX-Live USB under Devices with an eject icon, so I clicked it, and removed the live USB when it said it was safe to do so
+* I noticed that my full name wasn't asked for, so not set in `/etc/passwd`, so I updated it with mugshot
+* The package update process said that a config file (`/etc/X11/Xsession.d/98vboxadd-xclient`) was modified by me or a script since installation, and asked whether I want the package maintainer's version, the currently-installed version, to show the differences or start a shell, so I pressed d Enter to see the differences, the newer version seemed better, so I pressed q to exit less with the diff, y and Enter to accept the package maintainer's (new) version.
+* Pressed a key to close the package update window.
+* Since updates included changes to initrd and kernel I think, I rebooted, and logged-in with my password
+* Opened MX Package Installer, and added GIMP Full and Inkscape from Graphics, and GB_English_Firefox, GB_English_Libreoffice and GB_English_Thunderbird from Language, and clicked Install, entered my password, waited for the install to happen, clicked OK to confirm installation of the list of packages and deps, entered y and pressed Enter to install, clicked OK on the dialogue saying it had finished, and close
+* Opened the terminal and ran `sudo apt install -y build-essential python3 python3-virtualenv git openssh-server` (to install a C/C++ compiler, make, python3 virtualenv, git and sshd), and entered my password
+* Rebooted (not necessary), entered the disk encryption password, pressed Enter, entered my password, pressed Enter
 * Opened the firewall configuration utility from the MX Menu, Settings, Firewall Configuration, and entered my password
 * Clicked the Rules tab, clicked the plus button, set Policy: Allow, Direction: In, Category: Network, Subcategory: Services, Application: SSH, and clicked Add, and closed the add window. This isn't particularly secure, and you should probably limit it to the local network, if you are going to use untrusted networks, and configure sshd to accept only SSH keys, if the security of the system matters.
 * Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine
