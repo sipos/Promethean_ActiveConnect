@@ -336,3 +336,5 @@ I plan to document trying Debian and Gentoo to compare performance, and perhaps 
 I plan to install Gentoo, either primarily using packages from the Gentoo binhost, or building them in the cloud on my own virtual binhost, and use the device as a media centre machine. XBMC or similar might be a good fit for this, but I plan to use Gentoo and develop my own media centre environment, because that seems more fun.
 
 I want to try using the consumer IR port with the Flipper Zero, but I plan to use a 2.4GHz or Bluetooth keyboard and trackpad, game controller or WiFi or Bluetooth remote control device as the remote for a media centre. See TODO for other things I plan (at some point, eventually) to check.
+
+I want to try some apps I saw in the Elementary OS AppCentre too, but on a more powerful system.
