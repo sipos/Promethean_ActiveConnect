@@ -284,7 +284,6 @@ I didn't notice a difference with the above (the non-AHS version), but I didn't 
 
 I used the following image for this (sha256sum): `fe830d95bf124cb8feb26f92ad1934acf3762fb540167c4db4dffee2c40c756f  MX-23.6_ahs_x64.iso`
 
-Not done yet, but copied from above:
 * Pressed enter in syslinux boot menu on MX-23.6 ahs x64 (April 13 2025)
 * Waited for boot, ignoring kernel messages
 * Clicked on the disconnected Ethernet icon on the left, and clicked on my WiFi network under Available Networks, clicked in the key text box, entered the key and pressed Enter
@@ -318,3 +317,4 @@ Not done yet, but copied from above:
 * Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
 * Backing up files somewhere off-site obviously makes sense too
 * Enabling a firewall if you are using the device outside your home network or other trusted networks would be sensible too, disabling the SSH rule above, or changing profile, before connecting to untrusted networks
+
