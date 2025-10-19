@@ -311,6 +311,12 @@ I didn't notice	a difference with the above (the non-AHS version), but I didn't	
 
 See [other_distros.md](other_distros.md#mx-linux-xfce-ahs-x64-236).
 
+#### Debian 13.1.0 (trixie) x64
+
+Debian is a good solid distribution that has been around for ages, and values software freedom. It perhaps isn't the easiest for new users though. It is what everything else described here, except Gentoo, is based on though.
+
+See [other_distros.md](other_distros.md#debian-1310-trixie-x64).
+
 ### Suggested software
 
 For any Linux beginners, I usually install the following GUI apps:
@@ -329,9 +335,11 @@ I also often find GIMP and Inkscape useful.
 
 There are numerous free games for Linux, as well as many with Linux support. For emulation, I recommend RetroArch. I build it from source, with a script that is beyond the scope of these notes.
 
+Note that the guides/steps here include enabling SSH, but do not include setting it to accept only keys, rather than passwords, which you should do for security. TODO: add this
+
 ## Plans
 
-I plan to document trying Debian and Gentoo to compare performance, and perhaps try a KDE based distro, try Windows 10 or 11, try Steam and RetroArch (with NES, GB, SNES and N64 games), PyCharm, CLion and Arduino on Linux Mint Cinnamon Edition, maybe Hedgewars, SuperTux, SuperTuxKart, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
+I plan to document trying Gentoo to compare performance, and perhaps try a KDE based distro, try Windows 10 or 11, try Steam and RetroArch (with NES, GB, SNES and N64 games), PyCharm, CLion and Arduino on Linux Mint Cinnamon Edition, maybe Hedgewars, SuperTux, SuperTuxKart, before eventually installing Gentoo, my preferred distro (which I do not recommend, especially if you are not an experienced Linux user who likes understanding what is happening under the hood and values flexibility over simplicity - people who should use Gentoo are the people who will do so despite recommendations against it, so it doesn't need to be recommended, but I love it).
 
 I plan to install Gentoo, either primarily using packages from the Gentoo binhost, or building them in the cloud on my own virtual binhost, and use the device as a media centre machine. XBMC or similar might be a good fit for this, but I plan to use Gentoo and develop my own media centre environment, because that seems more fun.
 

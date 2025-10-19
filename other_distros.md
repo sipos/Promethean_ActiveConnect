@@ -182,7 +182,7 @@ I used the following image for this (sha256sum): `dea13e523dca28e3aa48d90167a636
 * Opened the terminal and ran `sudo apt install -y build-essential python3 python3-virtualenv git openssh-server` (to install a C/C++ compiler, make, python3 virtualenv, git and sshd), and entered my password
 * Opened the firewall configuration utility from the LM Menu, Preferences, Firewall Configuration, and entered my password
 * Clicked the Rules tab, clicked the plus button, set Policy: Allow, Direction: In, Category: Network, Subcategory: Services, Application: SSH, and clicked Add, and closed the add window. This isn't particularly secure, and you should probably limit it to the local network, if you are going to use untrusted networks, and configure sshd to accept only SSH keys, if the security of the system matters.
-* Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine
+* Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine, and pressing Ctrl-D to logout
 * Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
 * Backing up files somewhere off-site obviously makes sense too
 * Enabling the firewall if you are using the device outside your home network or other trusted networks would be sensible too, disabling the SSH rule above, or changing profile, before connecting to untrusted networks
@@ -231,7 +231,7 @@ I used the following image for this (sha256sum): `21f5a5f7be652c60b20ba799632809
 * Opened the terminal and ran `sudo apt install -y build-essential python3 python3-virtualenv git openssh-server` (to install a C/C++ compiler, make, python3 virtualenv, git and sshd), and entered my password
 * Opened the firewall configuration utility from the LM Menu, All Applications, Preferences, Firewall Configuration, and entered my password
 * Clicked the Rules tab, clicked the plus button, set Policy: Allow, Direction: In, Category: Network, Subcategory: Services, Application: SSH, and clicked Add, and closed the add window. This isn't particularly secure, and you should probably limit it to the local network, if you are going to use untrusted networks, and configure sshd to accept only SSH keys, if the security of the system matters.
-* Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine
+* Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine, and pressing Ctrl-D to logout
 * Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
 * Backing up files somewhere off-site obviously makes sense too
 * Enabling the firewall if you are using the device outside your home network or other trusted networks would be sensible too, disabling the SSH rule above, or changing profile, before connecting to untrusted networks
@@ -269,7 +269,7 @@ I used the following image for this (sha256sum): `6960a253320a7615217b07593fcd04
 * Rebooted (not necessary)
 * Opened the firewall configuration utility from the MX Menu, Settings, Firewall Configuration, and entered my password
 * Clicked the Rules tab, clicked the plus button, set Policy: Allow, Direction: In, Category: Network, Subcategory: Services, Application: SSH, and clicked Add, and closed the add window. This isn't particularly secure, and you should probably limit it to the local network, if you are going to use untrusted networks, and configure sshd to accept only SSH keys, if the security of the system matters.
-* Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine
+* Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine, and pressing Ctrl-D to logout
 * Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
 * Backing up files somewhere off-site obviously makes sense too
 * Enabling a firewall if you are using the device outside your home network or other trusted networks would be sensible too, disabling the SSH rule above, or changing profile, before connecting to untrusted networks
@@ -313,8 +313,66 @@ I used the following image for this (sha256sum): `fe830d95bf124cb8feb26f92ad1934
 * Rebooted (not necessary), entered the disk encryption password, pressed Enter, entered my password, pressed Enter
 * Opened the firewall configuration utility from the MX Menu, Settings, Firewall Configuration, and entered my password
 * Clicked the Rules tab, clicked the plus button, set Policy: Allow, Direction: In, Category: Network, Subcategory: Services, Application: SSH, and clicked Add, and closed the add window. This isn't particularly secure, and you should probably limit it to the local network, if you are going to use untrusted networks, and configure sshd to accept only SSH keys, if the security of the system matters.
-* Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine
+* Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine, and pressing Ctrl-D to logout
 * Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
 * Backing up files somewhere off-site obviously makes sense too
 * Enabling a firewall if you are using the device outside your home network or other trusted networks would be sensible too, disabling the SSH rule above, or changing profile, before connecting to untrusted networks
 
+# Debian 13.1.0 (trixie) x64
+
+Debian is a good solid distribution that has been around for ages, and values software freedom. It perhaps isn't the easiest for new users though. It is what everything else described here, except Gentoo, is based on though.
+
+I installed this with Ethernet connected as I know from experience that the driver for WiFi on this machine isn't available in the Debian install environment.
+
+It isn't hard to automate Debian installation. TODO: add link to my repo for that
+
+I used the following image for this (sha256sum): `658b28e209b578fe788ec5867deebae57b6aac5fce3692bbb116bab9c65568b3  debian-13.1.0-amd64-netinst.iso`
+
+* Pressed Enter on Graphical install in the GRUB menu
+* Ignored kernel ACPI error messages
+* Clicked Continue with English selected
+* Selected United Kingdom and clicked Continue
+* Clicked Continue with British English highlighted for the keyboard
+* Waited for the install media to be detected and mounted, and components loaded
+* Waited for the network to autoconfigure
+* Entered `pyros` for the hostname (this is what I am naming this device, choose your own hostname if you follow this) and clicked Continue
+* Entered `0point.cc` for the domain name (this is my domain, use your own or leave it if you are following this) and clicked Continue
+* Entered and confirmed a root password, and clicked Continue
+* Entered my name, `Nick Cripps` for the full name of the new user (obviously enter your own if you are following this) and clicked Continue
+* Entered `sipos` for the username (this, for obscure reasons, is the username I use, choose your own if following this) and clicked Continue
+* Entered and confirmed a password and clicked Continue
+* Waited for steps to finish
+* Selected Guided - use entire disk and clicked Continue
+* Left the SCSI1 (0,0,0) (sda) - 64.0 GB ATA FORESEE 64GB SSD entry selected, and clicked Continue
+* Left All files in one partition (recommended for new users) selected and clicked Continue
+* Clicked Continue with Finish partitioning and write changes to disk selected still
+* Selected Yes to write changes to disk and clicked Continue
+* Waited for installation to proceed
+* Left United Kingdom selected for the mirror location, and clicked Continue
+* Left deb.debian.org selected and clicked Continue
+* Clicked Continue with nothing entered for HTTP proxy
+* Waited for the package manager configuration to proceed and software list to be retrieved
+* Left No selected for participation in package popularity contest (this isn't a typical install) and clicked Continue
+* Left Debian desktop environment checked, unchecked GNOME, checked Xfce, left GNONE Flashback, KDE Plasma, Cinnamon, MATE, LXDE and LXQt unchecked, left web server unchecked, checked SSH server, left standard system utilities checked and Choose a Debian Blend for installation unchecked, and clicked Continue
+* Waited for packages to be retrieved and installed
+* Left Yes selected for Install GRUB boot loader to your primary drive, and clicked Continue
+* Selected /dev/sda (ata-FORESEE_64GB_SSD_F36237R00073) and clicked Continue
+* Clicked Continue to reboot
+* Ignored kernel ACPI and wireless driver error messages, and other messages
+* Entered my username and password
+* Right-clicked the `Debian 13.1.0 amd64 n` volume on the desktop, and selected Safely Remove Volume and removed the installation USB key
+* Opened a terminal from the icon at the bottom of the screen
+* Ran `su -` and entered the root password to get a root shell, ran `gpasswd -a sipos sudo`, pressed Ctrl-D to end the root shell, and again to end the user shell, then logged out and back in again
+* Opened a terminal and ran `sudo -e /etc/apt/sources.list` and added ` non-free` to the end of the `deb http://deb.debian.org/debian/ trixie main non-free-firmware` and saved and exited with Ctrl-X, y, Enter
+* Ran `sudo apt update`, if it reports any out of date packages, run `sudo apt upgrade -y`, but it didn't for, me so I didn't
+* Ran `sudo apt install -y linux-headers-$(uname -r | sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms` and then rebooted (you can avoid the restart if you want to, by using `rmmod` to remove conflicting modules (`b43`, `b43legacy`, `b44`, `bcma`, `brcm80211`, `brcmsmac` and `ssb`), and `modprobe` to load the `wl` module now it is installed (you may also need `cfg80211`, but restarting is easier to describe)
+* Entered my username and password
+* Clicked on the network cable icon in the notification are on the top right, and clicked on my WiFi network SSID under Available networks
+* Clicked in the WiFi key box, entered my WiFi key and pressed Enter
+* Disconnected the Ethernet cable
+* Opened the terminal and ran `sudo apt install -y build-essential python3 python3-virtualenv git` (to install a C/C++ compiler, make, python3 virtualenv, git and sshd), and entered my password
+* Ran `sudo apt install -y ufw`, then `sudo ufw enable && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw allow ssh`
+* Checked I could login by getting the IP address with `ip addr` in the terminal and then running `ssh 192.168.1.197` (obviously put the actual LAN IP address from `ip addr`) on another machine, and pressing Ctrl-D to logout
+* Signing-in to Firefox to share bookmarks, passwords, settings, etc, probably makes sense
+* Backing up files somewhere off-site obviously makes sense too
+* Enabling a firewall if you are using the device outside your home network or other trusted networks would be sensible too, disabling the SSH rule above, or changing profile, before connecting to untrusted networks
